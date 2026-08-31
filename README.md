@@ -1,6 +1,10 @@
-# Bookish — Unified Marketplace for Book Buyers, Sellers & Admins
 
-A full-stack web platform that connects **buyers**, **sellers**, and **administrators** with role-based dashboards and features like browsing, selling, cart & orders, payment/subscriptions, video reviews, complaint resolution, and admin moderation. Built with a modern React frontend and Node.js backend.
+
+# 📚 Bookish — Online Book Marketplace
+
+Bookish is a full-stack web platform for buying, selling, and managing books online. It provides separate experiences for **buyers, sellers, and administrators**, with role-based dashboards and features for browsing books, shopping, payments, subscriptions, personal libraries, reviews, complaints, inventory management, and platform administration.
+
+Built using **React, Node.js, Express.js, MongoDB, and modern web technologies**.
 
 ---
 
@@ -8,103 +12,146 @@ A full-stack web platform that connects **buyers**, **sellers**, and **administr
 
 **Demo video (Unlisted):** `(https://youtu.be/u79hp5E6ZAY)`
 
----
-
-## 📋 Metadata
-
-* **Groupid:** 53
-* **Project Title:** Bookish
-* **SPOC / Team lead:** Ayush Pratap Singh — `ayushpratap.s23@iiits.in` — Roll: `S20230010033`
+> The application is deployed with a React frontend and Node.js backend.
 
 ---
 
-## 📖 Project Summary
+## ✨ Features
 
-**Bookish** is a unified platform providing:
+### 🛒 Buyer
 
-* **Buyer features:** book browsing, cart, subscriptions, personal library, reading progress, video reviews, complaint/support.
-* **Seller features:** upload/manage books, inventory, order management, analytics.
-* **Admin features:** user management, content moderation (approve/reject books), system reports, complaint resolution.
+- Browse and search available books
+- View detailed book information
+- Add books to cart
+- Purchase books online
+- Subscription-based plans
+- Personal digital library
+- Track reading progress
+- Highlight and bookmark content
+- Watch video reviews
+- Submit and track complaints
+- Manage profile and addresses
+- View order history
+
+### 🏪 Seller
+
+- Upload books with details and images
+- Manage listed books
+- Manage inventory
+- Track orders
+- View sales analytics
+- Manage book reviews and videos
+- Track commissions
+
+### 🛡️ Admin
+
+- Manage users and roles
+- Approve or reject book listings
+- Moderate platform content
+- View platform reports
+- Monitor users, books, orders, and complaints
+- Resolve customer complaints
+- View platform-wide analytics
 
 ---
 
-## 👥 Team & Responsibilities
+## 🛠️ Tech Stack
 
-| Name               | Roll Number  | Responsibilities                                              |
-| ------------------ | ------------ | ------------------------------------------------------------- |
-| Ayush Pratap Singh | S20230010033 | Payment gateway, buyer's library, admin reports, video feed.  |
-| Piyush Kumar       | S20230010186 | Buyer profile, homepage, seller upload, user management.      |
-| Ujjwal Singh       | S20230010245 | Order tracking, seller dashboard, admin moderation.           |
-| Daivik Wadhwani    | S20230010064 | Complaint system, seller inventory, cart.                     |
-| Gugulothu Nithin   | S20230010099 | Authentication, contact & about us, shared UI (header/footer) |
+### Frontend
+
+- **React 18.2** — UI development
+- **Vite** — Build tool and development server
+- **Redux Toolkit** — State management
+- **Redux Persist** — Persistent application state
+- **React Router DOM** — Client-side routing
+- **Tailwind CSS** — Styling
+- **Axios** — API communication
+- **React Hook Form** — Form handling
+- **Zod** — Form validation
+- **Stripe** — Payment integration
+- **React PDF** — PDF rendering
+- **Recharts** — Data visualization
+- **Framer Motion** — Animations
+- **Lucide React** — Icons
+
+### Backend
+
+- **Node.js** — Runtime environment
+- **Express.js** — Backend framework
+- **MongoDB** — Database
+- **Mongoose** — MongoDB ODM
+- **Passport.js** — Authentication
+- **Cloudinary** — Image and file storage
+- **Stripe** — Payment processing
+- **Node-cron** — Scheduled tasks
+
+### Backend Middleware & Security
+
+- **Multer** — File uploads
+- **Morgan** — HTTP request logging
+- **CORS** — Cross-origin resource sharing
+- **Express Session** — Session management
+- **Connect Mongo** — MongoDB session store
+- **Helmet** — Security headers
+- **Express Rate Limit** — Rate limiting
+- **bcryptjs** — Password hashing
+- **Connect Flash** — Flash messages
+- **Method Override** — HTTP method handling
 
 ---
 
-## 🛠 Tech Stack
+## 🏗️ Architecture
 
-### **Frontend**
+Bookish follows a full-stack architecture consisting of:
 
-* **React 18.2** - UI library
-* **Vite** - Build tool and dev server
-* **Redux Toolkit** - State management
-* **Redux Persist** - State persistence
-* **React Router DOM** - Client-side routing
-* **Tailwind CSS** - Utility-first styling
-* **Axios** - HTTP client
-* **React Hook Form** - Form validation
-* **Zod** - Schema validation
-* **Stripe (React)** - Payment integration
-* **React PDF** - PDF rendering
-* **Recharts** - Data visualization
-* **Framer Motion** - Animations
-* **Lucide React** - Icons
+```text
+React Frontend
+      │
+      │ REST API
+      ▼
+Node.js + Express Backend
+      │
+      ├── Authentication
+      ├── Buyer Services
+      ├── Seller Services
+      ├── Admin Services
+      ├── Order Management
+      └── Subscription Management
+      │
+      ▼
+MongoDB Database
 
-### **Backend**
-
-* **Node.js** - Runtime environment
-* **Express.js** - Web framework
-* **MongoDB** - Database
-* **Mongoose** - ODM for MongoDB
-* **Passport.js** - Authentication middleware
-* **Cloudinary** - Image/file storage
-* **Stripe** - Payment processing
-* **Node-cron** - Scheduled tasks
-
-### **Backend Middlewares**
-
-* **morgan** - HTTP request logger for debugging and monitoring
-* **multer** - Multipart form-data handling for file uploads
-* **cors** - Cross-Origin Resource Sharing enablement
-* **express-session** - Session management
-* **connect-mongo** - MongoDB session store
-* **helmet** - Security headers
-* **express-rate-limit** - Rate limiting protection
-* **method-override** - HTTP method override
-* **connect-flash** - Flash messages
-* **bcryptjs** - Password hashing
+External Services:
+├── Stripe       → Payments & subscriptions
+└── Cloudinary   → Images & file storage
+```
 
 ---
 
 ## 📁 Project Structure
 
-```
-books_react/
+```text
+bookish/
+│
 ├── backend/
-│   ├── app.js                 # Express entry point
+│   ├── app.js
 │   ├── package.json
-│   ├── config/                # DB, cloudinary, passport, cron
+│   │
+│   ├── config/
 │   │   ├── cloudinary.js
 │   │   ├── db.js
 │   │   ├── passport.js
 │   │   └── subscriptionCron.js
-│   ├── controllers/           # Business logic
+│   │
+│   ├── controllers/
 │   │   ├── adminController.js
 │   │   ├── authController.js
 │   │   ├── buyerController.js
 │   │   ├── orderController.js
 │   │   ├── sellerController.js
 │   │   └── subscriptionController.js
-│   ├── models/                # Mongoose schemas
+│   │
+│   ├── models/
 │   │   ├── User.js
 │   │   ├── Book.js
 │   │   ├── Order.js
@@ -112,138 +159,150 @@ books_react/
 │   │   ├── Complaint.js
 │   │   ├── Library.js
 │   │   └── Subscription.js
-│   ├── routes/                # API routes
+│   │
+│   ├── routes/
 │   │   ├── auth.js
 │   │   ├── books.js
 │   │   ├── buyer.js
 │   │   ├── seller.js
 │   │   ├── admin.js
 │   │   └── orders.js
-│   ├── middleware/            # Custom middleware
+│   │
+│   ├── middleware/
 │   │   └── auth.js
-│   └── uploads/               # Temporary file uploads
+│   │
+│   └── uploads/
 │
 ├── frontend/
 │   ├── package.json
-│   ├── vite.config.js         # Vite configuration
-│   ├── tailwind.config.js     # Tailwind CSS config
+│   ├── vite.config.js
+│   ├── tailwind.config.js
 │   ├── index.html
+│   │
 │   ├── src/
-│   │   ├── main.jsx           # React entry point
-│   │   ├── App.jsx            # Root component
-│   │   ├── components/        # Reusable components
-│   │   ├── pages/             # Page components
-│   │   ├── redux/             # Redux slices & store
-│   │   │   ├── store.js
-│   │   │   └── slices/
-│   │   ├── services/          # API service layers
-│   │   ├── context/           # React contexts
-│   │   ├── utils/             # Utility functions
-│   │   ├── schemas/           # Validation schemas
-│   │   └── styles/            # Global styles
-│   └── public/                # Static assets
-│       ├── css/
-│       ├── js/
-│       └── img/
+│   │   ├── main.jsx
+│   │   ├── App.jsx
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── redux/
+│   │   ├── services/
+│   │   ├── context/
+│   │   ├── utils/
+│   │   ├── schemas/
+│   │   └── styles/
+│   │
+│   └── public/
 │
 └── README.md
 ```
 
 ---
 
-## ✨ Features (high level)
+## 🔐 Authentication & Authorization
 
-### Buyer
+Bookish implements role-based access control with separate functionality for:
 
-* Browse & search books, add to cart, checkout (subscription & purchases)
-* Personal library with reading progress tracking
-* Highlight and bookmark support
-* Video reviews/feed for books
-* Submit & track complaints
-* Profile management (addresses, orders)
-* Subscription plans with auto-renewal
+- **Buyer**
+- **Seller**
+- **Admin**
 
-### Seller
+Protected routes and backend authentication ensure that users can only access functionality permitted for their role.
 
-* Upload books with metadata and images
-* Inventory & order management
-* Sales analytics on dashboard
-* Book review and video management
-* Commission tracking
+Authentication uses **Passport.js**, sessions, MongoDB session storage, and password hashing with **bcryptjs**.
 
-### Admin
+---
 
-* Content moderation (approve/reject books)
-* User & role management
-* Reports: users, books, orders, complaints
-* Platform-wide analytics
-* Complaint resolution system
+## 💳 Payments & Subscriptions
+
+Bookish integrates **Stripe** for payment processing.
+
+Supported functionality includes:
+
+- One-time book purchases
+- Subscription plans
+- Recurring subscriptions
+- Secure payment processing
+- Subscription renewal using scheduled backend tasks
+
+Stripe credentials are stored using environment variables and are not included in the source code.
+
+---
+
+## ☁️ File & Image Management
+
+Bookish uses **Cloudinary** for storing and managing uploaded images and files.
+
+The backend uses **Multer** to handle multipart file uploads before transferring files to cloud storage.
+
+---
+
+## 🔌 API Structure
+
+The backend exposes REST-style API routes organized by functionality:
+
+```text
+/api/auth/*            → Authentication
+/api/books/*           → Book management
+/api/buyer/*           → Buyer operations
+/api/seller/*          → Seller operations
+/api/admin/*           → Admin operations
+/api/orders/*          → Order management
+/api/subscription/*    → Subscription management
+```
+
+---
+
+## 🔑 Key Implementation Details
+
+### Frontend
+
+- Redux Toolkit for centralized state management
+- Redux Persist for state persistence
+- React Router for protected and role-based navigation
+- Axios services for API communication
+- React Hook Form and Zod for form validation
+- Tailwind CSS for responsive UI
+- Framer Motion for animations
+
+### Backend
+
+- Express.js REST API
+- Passport.js authentication
+- MongoDB with Mongoose
+- Session-based authentication
+- Cloudinary file storage
+- Stripe payment integration
+- Scheduled subscription tasks with Node-cron
+- Helmet security middleware
+- Rate limiting
+- CORS configuration
+- Morgan request logging
 
 ---
 
 ## 📦 Prerequisites
 
-* **Node.js** v14+ and npm
-* **MongoDB** (Local or Atlas)
-* **Git**
-* **Cloudinary account** for image/file storage
-* **Stripe account** for payment processing
-* (Optional) **nodemon** for development
+Before running the project locally, make sure you have:
+
+- Node.js 14+
+- npm
+- MongoDB (local installation or MongoDB Atlas)
+- Git
+- Cloudinary account
+- Stripe account
 
 ---
 
-## 🔐 Environment Variables
+## 🚀 Installation
 
-### Backend `.env` file
-
-Create a `.env` file in the `backend/` directory with the following keys:
-
-```env
-# Database
-MONGODB_URI=mongodb+srv://<user>:<pass>@cluster0.mongodb.net/bookishdb
-
-# Cloudinary (images & files)
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-
-# Stripe Payment Gateway
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_PUBLISHABLE_KEY=pk_test_...
-
-# Session Secret
-SESSION_SECRET=your_session_secret_here
-
-# Server
-PORT=4000
-NODE_ENV=development
-
-# CORS
-FRONTEND_URL=http://localhost:5173
-```
-
-### Frontend `.env` file (optional)
-
-Create a `.env` file in the `frontend/` directory:
-
-```env
-# API Base URL
-VITE_API_URL=http://localhost:4000/api
-
-# Stripe Publishable Key
-VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...
-```
-
----
-
-## 🚀 Installation & Running (local)
-
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Ayush-aps/books_react.git
-cd books
+git clone https://github.com/ss2607/bookish.git
+cd bookish
 ```
+
+---
 
 ### 2. Setup Backend
 
@@ -252,44 +311,98 @@ cd backend
 npm install
 ```
 
-Create `.env` file with the variables listed above, then start the server:
+Create a `.env` file inside the `backend` directory.
+
+Example:
+
+```env
+MONGODB_URI=mongodb+srv://<user>:<password>@cluster0.mongodb.net/bookishdb
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+
+SESSION_SECRET=your_session_secret
+
+PORT=4000
+NODE_ENV=development
+
+FRONTEND_URL=http://localhost:5173
+```
+
+Start the backend:
 
 ```bash
-# Development mode with nodemon
 npm run dev
+```
 
-# Or production mode
+Or:
+
+```bash
 npm start
 ```
 
-Backend will run on `http://localhost:4000`
+The backend will run on:
+
+```text
+http://localhost:4000
+```
+
+---
 
 ### 3. Setup Frontend
 
-Open a new terminal:
+Open another terminal:
 
 ```bash
 cd frontend
 npm install
 ```
 
-Start the development server:
+Create a `.env` file inside the `frontend` directory:
+
+```env
+VITE_API_URL=http://localhost:4000/api
+VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+```
+
+Start the frontend:
 
 ```bash
 npm run dev
 ```
 
-Frontend will run on `http://localhost:5173`
+The frontend will run on:
 
-### 4. Open in browser
-
-```
+```text
 http://localhost:5173
 ```
 
 ---
 
-## 🏗 Build for Production
+## 🏗️ Production Build
+
+### Frontend
+
+```bash
+cd frontend
+npm run build
+```
+
+To preview the production build:
+
+```bash
+npm run preview
+```
+
+The production build will be generated inside:
+
+```text
+frontend/dist/
+```
 
 ### Backend
 
@@ -298,83 +411,63 @@ cd backend
 npm start
 ```
 
-### Frontend
+---
 
-```bash
-cd frontend
-npm run build
-npm run preview
+## 🔒 Environment Variables
+
+Sensitive credentials should **never be committed to GitHub**.
+
+The following types of values should be stored in `.env` files:
+
+- MongoDB connection string
+- Cloudinary credentials
+- Stripe secret key
+- Stripe publishable key
+- Session secret
+- API URLs
+
+Make sure `.env` files are included in `.gitignore`.
+
+Example:
+
+```text
+.env
+.env.local
+.env.production
 ```
 
-The optimized production build will be created in the `frontend/dist/` directory.
+---
+
+## 🧪 Testing & Development
+
+Important application flows include:
+
+- User authentication
+- Role-based navigation
+- Book browsing and search
+- Cart operations
+- Book purchases
+- Subscription handling
+- Personal library
+- Seller book uploads
+- Inventory management
+- Order management
+- Admin book moderation
+- Complaint submission and resolution
+- Form validation
+- API communication
+
+Browser developer tools can be used to inspect API requests and application state during development.
 
 ---
 
-## 🧪 Demo flows & testing checklist
+## 📊 Current Status
 
-The mid-review demo requires showing these flows:
+**Version:** 1.0
 
-1. **Form validation demo** - Client-side validation using React Hook Form + Zod schemas
-2. **Dynamic UI updates** - Real-time updates using Redux state management (e.g., admin approves a book)
-3. **Three async flows** (show DevTools Network tab):
-   * GET `/api/books` — Load books list
-   * POST `/api/cart` — Add to cart
-   * POST `/api/complaints` — Submit complaint
+**Status:** Deployed and functional
 
-### Artifacts to collect
-
-* `network_evidence/` — Screenshots of each network request in DevTools
-* `git-logs.txt` — Git commits per author
-* `test_plan.md` — Validated tests and results
-* MongoDB dump
-
----
-
-## 🔑 Key Implementation Details
-
-### Frontend Architecture
-
-* **State Management:** Redux Toolkit with Redux Persist for data persistence
-* **Routing:** React Router DOM with protected routes
-* **API Layer:** Centralized Axios services with interceptors
-* **Form Handling:** React Hook Form with Zod validation schemas
-* **Styling:** Tailwind CSS with custom components
-* **Animations:** Framer Motion for smooth transitions
-
-### Backend Architecture
-
-* **Authentication:** Passport.js with local strategy
-* **File Upload:** Multer middleware with Cloudinary storage
-* **Session Management:** Express-session with MongoDB store
-* **Logging:** Morgan for HTTP request logging
-* **Security:** Helmet for security headers, rate limiting, CORS
-* **Scheduled Tasks:** Node-cron for subscription renewals
-
-### API Endpoints Structure
-
-* `/api/auth/*` — Authentication routes
-* `/api/books/*` — Book management
-* `/api/buyer/*` — Buyer-specific operations
-* `/api/seller/*` — Seller-specific operations
-* `/api/admin/*` — Admin operations
-* `/api/orders/*` — Order management
-* `/api/subscription/*` — Subscription handling
-
----
-
-## 💳 Payments & Subscriptions
-
-* Stripe integration for secure payment processing
-* Subscription plans with automated renewal via node-cron
-* Support for both one-time purchases and recurring subscriptions
-* Ensure `STRIPE_SECRET_KEY` and `STRIPE_PUBLISHABLE_KEY` are set in `.env` files
-
----
-
-## 📊 Status & Roadmap
-
-**Current version:** 1.0 (Mid-review)  
-**Status:** Core features implemented as per FDFED; testing & final polish pending.
+The core buyer, seller, and admin workflows are implemented, along with payment, subscription, authentication, file upload, and database functionality.
 
 ---
 
@@ -382,49 +475,51 @@ The mid-review demo requires showing these flows:
 
 ### Backend not starting
 
-* Check `.env` variables in `backend/` directory
-* Ensure MongoDB server (local or Atlas) is reachable
-* Verify all required npm packages are installed
+- Check that MongoDB is reachable.
+- Verify the backend `.env` variables.
+- Run `npm install` inside `backend`.
+- Check whether port `4000` is already in use.
 
-### Frontend errors
+### Frontend not loading data
 
-* Open browser console for JS errors
-* Check that backend API is running on correct port
-* Verify CORS settings allow frontend origin
-* Ensure environment variables are prefixed with `VITE_`
+- Verify that the backend is running.
+- Check `VITE_API_URL`.
+- Check the browser console for errors.
+- Verify CORS configuration.
 
-### CORS issues
+### CORS errors
 
-* Verify `FRONTEND_URL` in backend `.env` matches frontend dev server
-* Check CORS middleware configuration in `backend/app.js`
+Make sure the backend `FRONTEND_URL` matches the frontend URL.
 
-### File upload issues
+For local development:
 
-* Verify Cloudinary credentials in backend `.env`
-* Check multer middleware configuration
-* Ensure uploads directory exists and has write permissions
+```env
+FRONTEND_URL=http://localhost:5173
+```
+
+### File upload problems
+
+- Verify Cloudinary credentials.
+- Check Multer configuration.
+- Make sure the required upload directories exist.
+
+### Payment problems
+
+- Verify Stripe environment variables.
+- Use valid Stripe test credentials when developing locally.
+- Check the browser console and backend logs for API errors.
 
 ---
 
-## 📞 Contact & Support
+## 👩‍💻 Author
 
-* **SPOC / Team lead:** Ayush Pratap Singh — `ayushpratap.s23@iiits.in` — Roll: `S20230010033`
-* For issues: Open GitHub issues in the repository
+**Shalu Singh**
+
+GitHub:  
+https://github.com/ss2607
 
 ---
 
-## 🧾 License
+## 📄 License
 
 This project is released under the **MIT License**.
-
----
-
-## 🙏 Acknowledgments
-
-* IIIT Sri City for project guidance
-* Team members for their dedicated contributions
-* Open-source community for amazing tools and libraries
-
----
-
-**Made with ❤️ by Team 53**
